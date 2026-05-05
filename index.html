@@ -30,7 +30,50 @@
       padding: 0 20px;
     }
 
-    /* GRID */
+    /* 🔥 FEATURED PROJECT */
+    .featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 30px;
+      background: #252525;
+      border-radius: 12px;
+      border: 1px solid #444;
+      margin-bottom: 50px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+    }
+
+    .featured .image-link {
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .featured img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .featured img:hover {
+      transform: scale(1.05);
+    }
+
+    .featured-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    /* GRID FOR OTHER PROJECTS */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -72,7 +115,7 @@
       transform: scale(1.05);
     }
 
-    .project-card p {
+    p {
       line-height: 1.5;
       margin: 10px 0;
     }
@@ -90,32 +133,6 @@
     .button:hover {
       background: #ddd;
       color: #222;
-    }
-
-    /* 🔥 FEATURED PROJECT */
-    .featured {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 30px;
-      align-items: center;
-      padding: 30px;
-    }
-
-    .featured .image-link {
-      aspect-ratio: 21/9;
-      margin: 0;
-    }
-
-    .featured-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .featured h2 {
-      text-align: left;
-      font-size: 1.8em;
     }
 
     /* CONTACT */
@@ -137,16 +154,12 @@
 
     /* MOBILE */
     @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
       .featured {
         grid-template-columns: 1fr;
       }
 
-      .featured h2 {
-        text-align: center;
+      .grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -161,32 +174,34 @@
 </header>
 
 <section class="projects-section">
-  <div class="grid">
 
-    <!-- 🔥 FEATURED PROJECT -->
-    <div class="project-card featured">
-      
-      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" target="_blank">
-        <img src="pictures/apartment_safety.jpg">
+  <!-- 🔥 FEATURED PROJECT -->
+  <div class="featured">
+    
+    <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" target="_blank">
+      <img src="pictures/apartment_safety.jpg">
+    </a>
+
+    <div class="featured-content">
+      <h2>Apartment Safety Score (Toronto)</h2>
+
+      <p><strong>Problem:</strong> No clear way to assess apartment safety risk across Toronto.</p>
+
+      <p><strong>Solution:</strong> Built a scoring system using hazard and registration data, engineered weighted features, and ranked buildings by risk.</p>
+
+      <p><strong>Impact:</strong> Helps tenants, managers, and policymakers identify high-risk areas.</p>
+
+      <p><strong>Tech:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn)</p>
+
+      <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" class="button" target="_blank">
+        VIEW PROJECT
       </a>
-
-      <div class="featured-content">
-        <h2>Apartment Safety Score (Toronto)</h2>
-
-        <p><strong>Problem:</strong> No clear way to assess apartment safety risk across Toronto.</p>
-
-        <p><strong>Solution:</strong> Built a scoring system using hazard and registration data, engineered weighted features, and ranked buildings by risk.</p>
-
-        <p><strong>Impact:</strong> Helps tenants, managers, and policymakers identify high-risk areas.</p>
-
-        <p><strong>Tech:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn)</p>
-
-        <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" class="button" target="_blank">
-          VIEW PROJECT
-        </a>
-      </div>
-
     </div>
+
+  </div>
+
+  <!-- OTHER PROJECTS -->
+  <div class="grid">
 
     <!-- PROJECT 2 -->
     <div class="project-card">
@@ -221,6 +236,7 @@
     </div>
 
   </div>
+
 </section>
 
 <section class="contact-section">
