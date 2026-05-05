@@ -9,17 +9,14 @@
     body {
       font-family: 'Times New Roman', Times, serif;
       margin: 0;
-      padding: 0;
       background: #1e1e1e;
       color: #ddd;
-      font-size: 17px;
     }
 
     header {
       text-align: center;
       background: #222;
-      color: white;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
     h1 {
@@ -29,140 +26,133 @@
 
     .projects-section {
       max-width: 1200px;
-      margin: 40px auto;
+      margin: 50px auto;
       padding: 0 20px;
     }
 
+    /* GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 40px;
-      margin-top: 20px;
     }
 
+    /* CARD */
     .project-card {
       background: #2e2e2e;
-      border-radius: 8px;
-      padding: 20px 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      color: #eee;
-      overflow: hidden;
     }
 
     .project-card h2 {
-      text-transform: uppercase;
-      font-weight: 800;
-      font-size: 1.25em;
-      margin-bottom: 20px;
       text-align: center;
+      margin-bottom: 15px;
+      text-transform: uppercase;
     }
 
-    .project-card a.image-link{
-      display:block;
-      width:100%;
-      aspect-ratio:16/9;
-      overflow:hidden;
-      border-radius:10px;
-      background:#111;
-      margin-bottom:20px;
+    .image-link {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
-    .project-card a.image-link img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition:transform .3s ease, filter .3s ease;
-      filter:saturate(1.05) contrast(1.05);
+
+    .image-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
     }
-    .project-card a.image-link:hover img{
-      transform:scale(1.04);
+
+    .image-link:hover img {
+      transform: scale(1.05);
     }
 
     .project-card p {
-      font-size: 1.1em;
-      line-height: 1.45;
-      margin-bottom: 10px;
+      line-height: 1.5;
+      margin: 10px 0;
     }
 
-    .project-card p strong {
-      font-weight: 700;
-    }
-
-    .project-card a.button {
+    .button {
+      margin-top: auto;
       align-self: center;
       padding: 10px 20px;
       border: 2px solid #ddd;
+      color: #ddd;
       text-decoration: none;
       font-weight: bold;
-      color: #ddd;
-      transition: background 0.2s ease;
-      margin-top: 20px;
     }
 
-    .project-card a.button:hover {
+    .button:hover {
       background: #ddd;
       color: #222;
-      border-color: #ddd;
     }
 
+    /* 🔥 FEATURED PROJECT */
+    .featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .featured .image-link {
+      aspect-ratio: 21/9;
+      margin: 0;
+    }
+
+    .featured-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured h2 {
+      text-align: left;
+      font-size: 1.8em;
+    }
+
+    /* CONTACT */
     .contact-section {
       text-align: center;
       margin: 60px auto;
-      padding: 20px;
+      padding: 30px;
       background: #2e2e2e;
       max-width: 800px;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.8);
-      color: #eee;
-    }
-
-    .contact-section h2 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-    }
-
-    .contact-section p {
-      font-size: 1em;
-      line-height: 1.6;
-    }
-
-    .contact-section a {
-      color: #88c0d0;
-      text-decoration: none;
-    }
-
-    .contact-section a:hover {
-      color: #a3d0f8;
-    }
-
-    .resume-button {
-      margin-top: 25px;
-      display: inline-block;
-      padding: 10px 25px;
-      background: #222;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      transition: background 0.2s ease;
-    }
-
-    .resume-button:hover {
-      background: #555;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background: #111;
-      font-size: 0.9em;
       color: #888;
     }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured {
+        grid-template-columns: 1fr;
+      }
+
+      .featured h2 {
+        text-align: center;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
 <header>
@@ -173,45 +163,71 @@
 <section class="projects-section">
   <div class="grid">
 
-    <div class="project-card">
-      <h2>Apartment Safety Score</h2>
-      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" target="_blank" rel="noopener">
-        <img src="pictures/apartment_safety.jpg" alt="Apartment Safety Visual" loading="lazy">
+    <!-- 🔥 FEATURED PROJECT -->
+    <div class="project-card featured">
+      
+      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" target="_blank">
+        <img src="pictures/apartment_safety.jpg">
       </a>
-      <p><strong>Summary:</strong> Built a scoring system to evaluate apartment safety across Toronto using building registration and hazard data. Cleaned and transformed datasets, engineered weighted safety attributes, and produced rankings that highlight risk levels for tenants, property managers, and policymakers.</p>
-      <p><strong>Tech Used:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn)</p>
-      <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" class="button" target="_blank" rel="noopener">VIEW PROJECT</a>
+
+      <div class="featured-content">
+        <h2>Apartment Safety Score (Toronto)</h2>
+
+        <p><strong>Problem:</strong> No clear way to assess apartment safety risk across Toronto.</p>
+
+        <p><strong>Solution:</strong> Built a scoring system using hazard and registration data, engineered weighted features, and ranked buildings by risk.</p>
+
+        <p><strong>Impact:</strong> Helps tenants, managers, and policymakers identify high-risk areas.</p>
+
+        <p><strong>Tech:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn)</p>
+
+        <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/apartment-safety-score-in-toronto.ipynb" class="button" target="_blank">
+          VIEW PROJECT
+        </a>
+      </div>
+
     </div>
 
+    <!-- PROJECT 2 -->
     <div class="project-card">
-      <h2>Churn Prediction Analysis</h2>
-      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/telecom-churn-prediction.ipynb" target="_blank" rel="noopener">
-        <img src="pictures/churn_prediction.png" alt="Churn Prediction Visual" loading="lazy">
+      <h2>Churn Prediction</h2>
+
+      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/telecom-churn-prediction.ipynb" target="_blank">
+        <img src="pictures/churn_prediction.png">
       </a>
-      <p><strong>Summary:</strong> Built ML models to predict customer churn from demographic and behavioral data. Experimented with feature engineering and classifiers to identify churn drivers and retention opportunities.</p>
-      <p><strong>Tech Used:</strong> Python (Pandas, NumPy, Scikit-learn), Logistic Regression, Random Forest, XGBoost</p>
-      <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/telecom-churn-prediction.ipynb" class="button" target="_blank" rel="noopener">VIEW PROJECT</a>
+
+      <p><strong>Summary:</strong> Built ML models to predict churn and identify key retention drivers.</p>
+      <p><strong>Tech:</strong> Python, Scikit-learn, XGBoost</p>
+
+      <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/telecom-churn-prediction.ipynb" class="button" target="_blank">
+        VIEW PROJECT
+      </a>
     </div>
 
+    <!-- PROJECT 3 -->
     <div class="project-card">
-      <h2>Olist E-Commerce (SQL Modeling)</h2>
-      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/olist_ecommerce.sql" target="_blank" rel="noopener">
-        <img src="pictures/olist_sql_project.jpg" alt="Olist SQL Project Visual" loading="lazy">
-      </a>
-      <p><strong>Summary:</strong> Cleaned and modeled the Olist database using three core tables (<em>customers, orders, items</em>). Built a fact table with delivery KPIs and created views to analyze order delays, state/city revenue, and monthly KPIs.</p>
-      <p><strong>Tech Used:</strong> MySQL (CTEs, Views, Indexing)</p>
-      <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/olist_ecommerce.sql" class="button" target="_blank" rel="noopener">VIEW SQL</a>
-    </div>
+      <h2>Olist E-Commerce (SQL)</h2>
 
+      <a class="image-link" href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/olist_ecommerce.sql" target="_blank">
+        <img src="pictures/olist_sql_project.jpg">
+      </a>
+
+      <p><strong>Summary:</strong> Modeled data warehouse and built KPIs for delivery and revenue analysis.</p>
+      <p><strong>Tech:</strong> MySQL (CTEs, Views, Indexing)</p>
+
+      <a href="https://github.com/SadigzadeHabib/github-portfolio/blob/e44d8d360d3f846de8ca3434cc0c70bd097e5ddb/olist_ecommerce.sql" class="button" target="_blank">
+        VIEW SQL
+      </a>
+    </div>
 
   </div>
 </section>
 
 <section class="contact-section">
   <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:sadigzadehabib@gmail.com">sadigzadehabib@gmail.com</a><br>
-     LinkedIn: <a href="https://www.linkedin.com/in/habib-sadigzade" target="_blank" rel="noopener">linkedin.com/in/habib-sadigzade</a><br>
-     GitHub: <a href="https://github.com/sadigzadehabib" target="_blank" rel="noopener">github.com/sadigzadehabib</a></p>
+  <p>Email: sadigzadehabib@gmail.com</p>
+  <p>LinkedIn: linkedin.com/in/habib-sadigzade</p>
+  <p>GitHub: github.com/sadigzadehabib</p>
 </section>
 
 <footer>
